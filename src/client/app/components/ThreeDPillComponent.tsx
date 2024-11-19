@@ -27,7 +27,7 @@ export default function ThreeDPillComponent() {
 
 	const meterPillData = graphState.selectedMeters.map(meterID => {
 		const area = meterDataById[meterID]?.area;
-		const areaUnit = meterDataById[meterID].areaUnit;
+		const areaUnit = meterDataById[meterID]?.areaUnit;
 		const isAreaCompatible = area !== 0 && areaUnit !== AreaUnitType.none;
 		const isDisabled = !isAreaCompatible && graphState.areaNormalization;
 

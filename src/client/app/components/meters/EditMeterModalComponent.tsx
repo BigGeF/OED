@@ -555,8 +555,8 @@ export default function EditMeterModalComponent(props: EditMeterModalComponentPr
 								type='number'
 								onChange={e => handleNumberChange(e)}
 								min='0'
-								defaultValue={localMeterEdits.readingVariation}
-								invalid={localMeterEdits.readingVariation < 0} />
+								defaultValue={localMeterEdits?.readingVariation}
+								invalid={localMeterEdits?.readingVariation < 0} />
 							<FormFeedback>
 								<FormattedMessage id="error.negative" />
 							</FormFeedback>
@@ -581,7 +581,7 @@ export default function EditMeterModalComponent(props: EditMeterModalComponentPr
 								id='timeSort'
 								name='timeSort'
 								type='select'
-								value={localMeterEdits.timeSort}
+								value={localMeterEdits?.timeSort}
 								onChange={e => handleStringChange(e)}>
 								{Object.keys(MeterTimeSortType).map(key => {
 									// This is a bit of a hack but it should work fine. The TypeSortTypes and MeterTimeSortType should be in sync.
