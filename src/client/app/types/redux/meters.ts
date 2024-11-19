@@ -22,7 +22,7 @@ export enum MeterTimeSortType {
 	decreasing = 'decreasing',
 }
 
-export interface MeterData {
+interface AdminMeterData {
 	id: number;
 	identifier: string;
 	name: string;
@@ -58,6 +58,43 @@ export interface MeterData {
 	maxError: number;
 	disableChecks: boolean;
 }
+interface NonAdminMeterData {
+	id: number,
+	name: null,
+	url: null,
+	enabled: boolean,
+	displayable: boolean,
+	meterType: null,
+	timeZone: null,
+	gps: GPSPoint | null,
+	identifier: string,
+	note: null,
+	area: number,
+	cumulative: null,
+	cumulativeReset: null,
+	cumulativeResetStart: null,
+	cumulativeResetEnd: null,
+	readingGap: null,
+	readingVariation: null,
+	readingDuplication: null,
+	timeSort: null,
+	endOnlyTime: null,
+	reading: null,
+	startTimestamp: null,
+	endTimestamp: null,
+	previousEnd: null,
+	unitId: number,
+	defaultGraphicUnit: number,
+	areaUnit: AreaUnitType,
+	readingFrequency: null,
+	minVal: null,
+	maxVal: null,
+	minDate: null,
+	maxDate: null,
+	maxError: null,
+	disableChecks: null,
+}
+export type MeterData = AdminMeterData | NonAdminMeterData
 
 export interface MeterDataByID extends Record<number, MeterData> { }
 

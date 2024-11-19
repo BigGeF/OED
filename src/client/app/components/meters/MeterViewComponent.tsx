@@ -48,6 +48,9 @@ export default function MeterViewComponent(props: MeterViewComponentProps) {
 			<div className="identifier-container">
 				{props.meter.identifier}
 			</div>
+			<div>
+				HELLO YES THIS IS WORKING
+			</div>
 			{loggedInAsAdmin &&
 				<div className="item-container">
 					<b><FormattedMessage id="name" /></b> {props.meter.name}
