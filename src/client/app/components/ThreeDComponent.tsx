@@ -15,8 +15,8 @@ import { selectScalingFromEntity } from '../redux/selectors/entitySelectors';
 import { selectGraphState } from '../redux/slices/graphSlice';
 import { ThreeDReading } from '../types/readings';
 import { GraphState, MeterOrGroup } from '../types/redux/graph';
-import { GroupDataByID } from '../types/redux/groups';
-import { MeterDataByID } from '../types/redux/meters';
+import {GroupDataByID } from '../types/redux/groups';
+import {AdminMeterData, MeterDataByID } from '../types/redux/meters';
 import { UnitDataById } from '../types/redux/units';
 import { isValidThreeDInterval, roundTimeIntervalForFetch } from '../utils/dateRangeCompatibility';
 import { AreaUnitType } from '../utils/getAreaUnitConversion';
@@ -157,7 +157,7 @@ function formatThreeDData(
 			const rateScaling = needsRateScaling ? currentSelectedRate.rate : 1;
 
 			const entity = meterOrGroup === MeterOrGroup.meters ?
-				meterDataById[selectedMeterOrGroupID]
+				meterDataById[selectedMeterOrGroupID] as AdminMeterData
 				:
 				groupDataById[selectedMeterOrGroupID];
 			const scaling = selectScalingFromEntity(entity, graphState.selectedAreaUnit, graphState.areaNormalization, rateScaling);
